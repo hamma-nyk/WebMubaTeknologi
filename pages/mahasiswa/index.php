@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['login'])) {
+    header('Location: ../../auth/login.php');
+    exit;
+}
 include '../../config/app.php';
 ?>
 <!DOCTYPE html>
@@ -23,7 +28,10 @@ include '../../config/app.php';
                     <a class="nav-link" href="../../pages/mahasiswa">Mahasiswa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../../pages/modal">Modal</a>
+                    <a class="nav-link" href="../../pages/user">User</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../auth/logout.php">Logout</a>
                 </li>
             </ul>
         </div>

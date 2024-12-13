@@ -1,5 +1,10 @@
 <?php
+session_start();
 include '../../config/app.php';
+if (!isset($_SESSION['login'])) {
+    header('Location: ../../auth/login.php');
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +28,10 @@ include '../../config/app.php';
                     <a class="nav-link" href="../../pages/mahasiswa">Mahasiswa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../../pages/modal">Modal</a>
+                    <a class="nav-link" href="../../pages/user">User</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../auth/logout.php">Logout</a>
                 </li>
             </ul>
         </div>
@@ -32,6 +40,7 @@ include '../../config/app.php';
         <h1>Daftar Barang</h1>
         <hr>
         <a href="lib/create.php" class="btn btn-primary mb-1">Tambah Barang</a>
+        <a href="lib/export_ss.php" class="btn btn-primary mb-1">Export Excel</a>
         <table class="table table-striped" id="myTable">
             <?php $daftar_barang = select("SELECT * FROM tb_barang"); ?>
             <thead>

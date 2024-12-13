@@ -144,3 +144,41 @@ function deleteMahasiswa($id_mhs)
     return mysqli_affected_rows($connect);
     $connect->close();
 }   
+
+function createUser($post)
+{
+    global $connect;
+    $nama = strip_tags($post['nama']);
+    $username = strip_tags($post['username']);
+    $email = strip_tags($post['email']);
+    $password = password_hash(strip_tags($post['password']), PASSWORD_BCRYPT);
+    $role = strip_tags($post['role']);
+    $query = "INSERT INTO tb_user (nama, username, email, password, role) VALUES ('$nama', '$username', '$email', '$password', '$role')";
+    mysqli_query($connect, $query);
+    return mysqli_affected_rows($connect);
+    $connect->close();
+}
+
+function updateUser($post)
+{
+    global $connect;
+    $id_user = strip_tags($post['id_user']);
+    $nama = strip_tags($post['nama']);
+    $username = strip_tags($post['username']);
+    $email = strip_tags($post['email']);
+    $role = strip_tags($post['role']);
+    $query = "UPDATE tb_user SET nama='$nama', username='$username', email='$email', role='$role' WHERE id_user = '$id_user'";
+    mysqli_query($connect, $query);
+    return mysqli_affected_rows($connect);
+    $connect->close();
+}
+
+function deleteUser($post)
+{
+    global $connect;
+    $id_user = strip_tags($post['id_user']);
+    $query = "DELETE FROM tb_user WHERE id_user = '$id_user'";
+    mysqli_query($connect, $query);
+    return mysqli_affected_rows($connect);
+    $connect->close();
+}

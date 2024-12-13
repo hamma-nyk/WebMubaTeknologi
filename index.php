@@ -20,10 +20,10 @@ include 'config/app.php';
                     <a class="nav-link" href="pages/barang">Barang</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?pages=mahasiswa">Mahasiswa</a>
+                    <a class="nav-link" href="pages/mahasiswa">Mahasiswa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?pages=modal">Modal</a>
+                    <a class="nav-link" href="pages/user">User</a>
                 </li>
             </ul>
         </div>

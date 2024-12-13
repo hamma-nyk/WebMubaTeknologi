@@ -74,6 +74,11 @@ if (isset($_POST['submit'])) {
                 <input type="text" class="form-control" id="tlp" name="tlp" required>
             </div>
             <div class="mb-3">
+                <label for="alamat" class="form-label">Alamat</label>
+                <textarea name="alamat" id="alamat" class="form-control"></textarea>
+
+            </div>
+            <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" name="email" required>
             </div>
@@ -88,6 +93,27 @@ if (isset($_POST['submit'])) {
         </form>
     </div>
     <?php include '../layout/bottom_script.php'; ?>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#alamat'),{
+                toolbar: {
+                    items: [
+                        'exportPDF',
+                        'exportWord',
+                        '|',
+                        'findAndReplace',
+                        'selectAll',
+                        '|',
+                        'undo',
+                        'redo'
+                    ],
+                    shouldNotGroupWhenFull: true
+                },
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
     <script>
         const foto = document.querySelector('#foto');
         const imgPreview = document.querySelector('.img-preview');

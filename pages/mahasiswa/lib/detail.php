@@ -25,6 +25,10 @@
                             <td>: <?= $mhs['tlp_mhs'] ?></td>
                         </tr>
                         <tr>
+                            <td>Alamat</td>
+                            <td>: <?= $mhs['alamat'] ?></td>
+                        </tr>
+                        <tr>
                             <td>Email</td>
                             <td>: <?= $mhs['email_mhs'] ?></td>
                         </tr>
